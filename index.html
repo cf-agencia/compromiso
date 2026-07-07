@@ -7,6 +7,31 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <style>
+
+        @media print {
+            @page {
+                size: letter portrait;
+                margin: 12mm 15mm;   /* Ajusta según necesites */
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            .document-container {
+                margin: 0;
+                padding: 20mm 15mm;
+                box-shadow: none;
+            }
+
+            /* Ocultar URL y footers del navegador */
+            footer, 
+            .footer,
+            #footer {
+                display: none !important;
+            }
+        }
         * {
             box-sizing: border-box;
         }
@@ -320,5 +345,7 @@
 
 </script>
 
+</body>
+</html>
 </body>
 </html>
