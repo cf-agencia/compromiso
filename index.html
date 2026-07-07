@@ -80,7 +80,7 @@
             font-size: inherit;
             background: transparent;
             outline: none;
-            color: #002855;
+            color: #000;
         }
         .canvas-container {
             position: relative;
@@ -93,6 +93,10 @@
         }
         @media (max-width: 768px) {
             .canvas-container { height: 160px; }
+        }
+
+        .legal-text {
+            text-align: justify;
         }
     </style>
 </head>
@@ -107,57 +111,31 @@
             Cartagena – Comfenalco</h3>
         </div>
 
-        <p class="legal-text">
+        <p class="legal-text" >
             <input type="text" class="input-inline" placeholder="Escriba su nombre completo" style="width: 320px;"> Mayor de edad, 
-            identificado(a) con cédula de ciudadanía No. <input type="text" class="input-inline" placeholder="...número de documento..." style="width: 200px; text-align: center;">, 
+            identificado(a) con cédula de ciudadanía No. <input type="number" class="input-inline" placeholder="...número de documento..." style="width: 200px; text-align: center;">, 
             expedida en <input type="text" class="input-inline" placeholder="...municipio de expedición..." style="width: 250px; text-align: center;"> actuando en nombre propio y en calidad de postulante al esquema de beneficios del Mecanismo de Protección al Cesante y de acuerdo con lo establecido en la Ley 2225 de 2022, Decreto 689 de 2021, la Resolución 5984 de 2014 y Ley 1636 de 2013. Me <strong>COMPROMETO</strong> a entender, comprender y cumplir lo establecido a continuación:
         </p>
 
         <ul class="obligations-list">
-            <li>La naturaleza de los recursos asignados para la ruta de empleabilidad (entrevista de orientación laboral, talleres y capacitaciones) es de carácter parafiscal, los cuales son de destinación específica. Por lo tanto, el cumplimiento de la ruta debe realizarse de manera estricta.</li>
-            <li>Asistir de manera obligatoria y oportuna a los procesos de seguimiento notificados y cumplir a cabalidad con un mínimo del 80% de los cursos o capacitaciones asignadas so pena de perder los beneficios a los que haya lugar, de acuerdo con lo establecido en el artículo 14 de la Ley 1636 de 2013.</li>
-            <li>Las capacitaciones ofrecidas por la Agencia de Empleo de COMFENALCO, tienen el objetivo de preparar, desarrollar y complementar las capacidades de los cesantes.</li>
-            <li>Las obligaciones de la Agencia de Empleo de COMFENALCO son de medio y no de resultado.</li>
-            <li>Únicamente se podrán exonerar de la asistencia a la capacitación, por causa de fuerza mayor o caso fortuito, según lo establecido en el artículo 64 del código civil. En todo caso, esta circunstancia deberá ser declarada bajo juramento por el cesante. Serán aceptadas como fuerza mayor las incapacidades médicas expedidas por profesional médico de la Entidad Promotora de Salud o entidad asimilable del Sistema de Seguridad Social en salud a la cual se encuentre afiliado el cesante.</li>
+            <li class="legal-text">La naturaleza de los recursos asignados para la ruta de empleabilidad (entrevista de orientación laboral, talleres y capacitaciones) es de carácter parafiscal, los cuales son de destinación específica. Por lo tanto, el cumplimiento de la ruta debe realizarse de manera estricta.</li>
+            <li class="legal-text">Asistir de manera obligatoria y oportuna a los procesos de seguimiento notificados y cumplir a cabalidad con un mínimo del 80% de los cursos o capacitaciones asignadas so pena de perder los beneficios a los que haya lugar, de acuerdo con lo establecido en el artículo 14 de la Ley 1636 de 2013.</li>
+            <li class="legal-text">Las capacitaciones ofrecidas por la Agencia de Empleo de COMFENALCO, tienen el objetivo de preparar, desarrollar y complementar las capacidades de los cesantes.</li>
+            <li class="legal-text">Las obligaciones de la Agencia de Empleo de COMFENALCO son de medio y no de resultado.</li>
+            <li class="legal-text">Únicamente se podrán exonerar de la asistencia a la capacitación, por causa de fuerza mayor o caso fortuito, según lo establecido en el artículo 64 del código civil. En todo caso, esta circunstancia deberá ser declarada bajo juramento por el cesante. Serán aceptadas como fuerza mayor las incapacidades médicas expedidas por profesional médico de la Entidad Promotora de Salud o entidad asimilable del Sistema de Seguridad Social en salud a la cual se encuentre afiliado el cesante.</li>
         </ul>
     </div>
     <div class="pdf-page">
-        <p class="acceptance-text">
+        <p class="legal-text" >
             Por esta razón, ACEPTO cumplir y acatar cualquier sanción o acción legal que COMFENALCO instaure en mi contra con el fin de salvaguardar los recursos administrados en caso de no cumplir con las obligaciones a mi cargo, de acuerdo con lo establecido en la norma.
         </p>
 
         <p class="date-section">
             Para constancia, se firma el presente documento, en la ciudad de Cartagena de Indias a los 
-            <select class="input-inline" style="width: 60px; text-align: center;">
-                <option value="" disabled selected>Día</option>
-                <option value="01">01</option><option value="02">02</option><option value="03">03</option>
-                <option value="04">04</option><option value="05">05</option><option value="06">06</option>
-                <option value="07">07</option><option value="08">08</option><option value="09">09</option>
-                <option value="10">10</option><option value="11">11</option><option value="12">12</option>
-                <option value="13">13</option><option value="14">14</option><option value="15">15</option>
-                <option value="16">16</option><option value="17">17</option><option value="18">18</option>
-                <option value="19">19</option><option value="20">20</option><option value="21">21</option>
-                <option value="22">22</option><option value="23">23</option><option value="24">24</option>
-                <option value="25">25</option><option value="26">26</option><option value="27">27</option>
-                <option value="28">28</option><option value="29">29</option><option value="30">30</option>
-                <option value="31">31</option>
-            </select> 
+            <input type="number" class="input-inline" placeholder="00" style="width: 60px; text-align: center;">
             días del mes de 
-            <select class="input-inline" style="width: 120px; text-align: center;">
-                <option value="" disabled selected>Mes</option>
-                <option value="Enero">Enero</option><option value="Febrero">Febrero</option>
-                <option value="Marzo">Marzo</option><option value="Abril">Abril</option>
-                <option value="Mayo">Mayo</option><option value="Junio">Junio</option>
-                <option value="Julio">Julio</option><option value="Agosto">Agosto</option>
-                <option value="Septiembre">Septiembre</option><option value="Octubre">Octubre</option>
-                <option value="Noviembre">Noviembre</option><option value="Diciembre">Diciembre</option>
-            </select> 
-            del año 
-            <select class="input-inline" style="width: 75px; text-align: center;">
-                <option value="" disabled selected>Año</option>
-                <option value="2026">2026</option>
-                <option value="2027">2027</option>
-            </select>.
+            <input type="text" class="input-inline" placeholder="...mes..." style="width: 150px; text-align: center;">
+            del año 2026.
         </p>
 
         <div class="signature-container">
@@ -196,8 +174,8 @@
         const rect = canvas.getBoundingClientRect();
         canvas.width = rect.width;
         canvas.height = rect.height;
-        ctx.strokeStyle = "#000000"; 
-        ctx.lineWidth = 2;            
+        ctx.strokeStyle = "#000000";
+        ctx.lineWidth = 3;        // Un poco más grueso se ve mejor
         ctx.lineCap = "round";
         ctx.lineJoin = "round";
     }
@@ -205,44 +183,63 @@
     window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
 
-    // --- TRACKING DE MOUSE ---
-    canvas.addEventListener('mousedown', (e) => { drawing = true; ctx.beginPath(); ctx.moveTo(e.offsetX, e.offsetY); });
-    canvas.addEventListener('mousemove', (e) => { if (!drawing) return; ctx.lineTo(e.offsetX, e.offsetY); ctx.stroke(); });
+    // ==================== MOUSE ====================
+    canvas.addEventListener('mousedown', (e) => { 
+        drawing = true; 
+        ctx.beginPath(); 
+        ctx.moveTo(e.offsetX, e.offsetY); 
+    });
+
+    canvas.addEventListener('mousemove', (e) => { 
+        if (!drawing) return; 
+        ctx.lineTo(e.offsetX, e.offsetY); 
+        ctx.stroke(); 
+    });
+
     window.addEventListener('mouseup', () => { drawing = false; });
 
-    // --- TRACKING TÁCTIL ---
+    // ==================== TOUCH (CELULAR) - SOLUCIÓN PRINCIPAL ====================
     canvas.addEventListener('touchstart', (e) => {
+        e.preventDefault();           // ← Importante
         drawing = true;
         const touch = e.touches[0];
         const rect = canvas.getBoundingClientRect();
         ctx.beginPath();
         ctx.moveTo(touch.clientX - rect.left, touch.clientY - rect.top);
-    });
+    }, { passive: false });
+
     canvas.addEventListener('touchmove', (e) => {
         if (!drawing) return;
+        e.preventDefault();           // ← Muy importante
         const touch = e.touches[0];
         const rect = canvas.getBoundingClientRect();
         ctx.lineTo(touch.clientX - rect.left, touch.clientY - rect.top);
         ctx.stroke();
+    }, { passive: false });
+
+    window.addEventListener('touchend', () => { 
+        drawing = false; 
     });
-    window.addEventListener('touchend', () => { drawing = false; });
 
-    clearButton.addEventListener('click', () => { ctx.clearRect(0, 0, canvas.width, canvas.height); });
+    // Limpiar firma
+    clearButton.addEventListener('click', () => { 
+        ctx.clearRect(0, 0, canvas.width, canvas.height); 
+    });
 
-    // --- SCRIPT PARA GENERAR EL PDF ---
+    // Botón de imprimir
     pdfButton.addEventListener('click', () => {
-        // Ocultar temporalmente el panel de acciones (ya lo tienes en @media print, pero por si acaso)
         const actionPanel = document.querySelector('.action-panel');
         if (actionPanel) actionPanel.style.display = 'none';
 
-        // Pequeña pausa para que se aplique el estilo antes de imprimir
         setTimeout(() => {
+            if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
+                alert("📱 Se abrirá el menú de impresión.\nElige 'Guardar como PDF'");
+            }
             window.print();
-            
-            // Restaurar el panel después de imprimir (opcional)
+
             setTimeout(() => {
                 if (actionPanel) actionPanel.style.display = 'block';
-            }, 500);
+            }, 800);
         }, 100);
     });
 </script>
