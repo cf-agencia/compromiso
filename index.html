@@ -47,6 +47,17 @@
             }
         }
 
+
+        .action-panel {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+
+
         /* Estilos para Impresión (muy importante) */
         @media print {
             body {
@@ -98,6 +109,21 @@
         .legal-text {
             text-align: justify;
         }
+
+        .btn-pdf {
+                    background-color: #28a745;
+                    color: white;
+                    border: none;
+                    padding: 14px 28px;
+                    font-size: 13pt;
+                    font-weight: bold;
+                    border-radius: 6px;
+                    cursor: pointer;
+                    box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+                    transition: all 0.2s;
+                    min-width: 280px;
+        }
+        
     </style>
 </head>
 <body>
@@ -160,7 +186,9 @@
 </div>
 
 <div class="action-panel">
-    <button type="button" class="btn-pdf" id="download-pdf-btn">Generar y Descargar PDF</button>
+    <button type="button" class="btn-pdf" id="download-pdf-btn">
+        Generar y Descargar PDF
+    </button>
 </div>
 
 <script>
