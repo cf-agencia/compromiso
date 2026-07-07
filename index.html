@@ -1,1 +1,251 @@
-hola
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compromiso Adquirido Ruta de Empleabilidad</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {      
+            font-family: 'Arial', sans-serif;
+            font-size: 11pt;
+            line-height: 1.6;
+            color: #2b2b2b;
+            margin: 0;
+            padding: 20px 10px;
+            background-color: #f4f7f6;
+        }
+
+        .document-container {
+            background-color: #ffffff;
+            padding: 30px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px 5px;
+            }
+            .document-container {
+                padding: 20px 15px;
+                border-radius: 0;
+            }
+            .header h1 {
+                font-size: 13pt;
+            }
+            input.input-inline, select.input-inline {
+                font-size: 10pt;
+            }
+        }
+
+        /* Estilos para Impresión (muy importante) */
+        @media print {
+            body {
+                background: white;
+                margin: 0;
+                padding: 0;
+            }
+            .document-container {
+                box-shadow: none;
+                border-radius: 0;
+                max-width: 100%;
+                width: 100%;
+                margin: 0 auto;
+                padding: 20mm 15mm;
+            }
+            .action-panel,
+            .btn-clear {
+                display: none !important;
+            }
+            .canvas-container {
+                border: 1px solid #ccc;
+            }
+        }
+
+        /* Resto de tus estilos (header, listas, etc.) se mantienen */
+        .header { text-align: center; margin-bottom: 30px; border-bottom: 2px solid #0056b3; padding-bottom: 15px; }
+        .input-inline {
+            border: none;
+            border-bottom: 1px solid #000;
+            font-family: inherit;
+            font-size: inherit;
+            background: transparent;
+            outline: none;
+            color: #002855;
+        }
+        .canvas-container {
+            position: relative;
+            width: 100%;
+            height: 180px;
+            background-color: #fdfdfd;
+            border: 1px dashed #6c757d;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        @media (max-width: 768px) {
+            .canvas-container { height: 160px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="document-container" id="pdf-content">
+    <div class="pdf-page">
+        <div class="header">
+            <h3>COMPROMISO ADQUIRIDO RUTA DE EMPLEABILIDAD
+                <br>
+  CAJA DE COMPENSACIÓN FAMILIAR DE FENALCO – ANDI COMFENALCO<br>
+            Cartagena – Comfenalco</h3>
+        </div>
+
+        <p class="legal-text">
+            <input type="text" class="input-inline" placeholder="Escriba su nombre completo" style="width: 320px;"> Mayor de edad, 
+            identificado(a) con cédula de ciudadanía No. <input type="text" class="input-inline" placeholder="...número de documento..." style="width: 200px; text-align: center;">, 
+            expedida en <input type="text" class="input-inline" placeholder="...municipio de expedición..." style="width: 250px; text-align: center;"> actuando en nombre propio y en calidad de postulante al esquema de beneficios del Mecanismo de Protección al Cesante y de acuerdo con lo establecido en la Ley 2225 de 2022, Decreto 689 de 2021, la Resolución 5984 de 2014 y Ley 1636 de 2013. Me <strong>COMPROMETO</strong> a entender, comprender y cumplir lo establecido a continuación:
+        </p>
+
+        <ul class="obligations-list">
+            <li>La naturaleza de los recursos asignados para la ruta de empleabilidad (entrevista de orientación laboral, talleres y capacitaciones) es de carácter parafiscal, los cuales son de destinación específica. Por lo tanto, el cumplimiento de la ruta debe realizarse de manera estricta.</li>
+            <li>Asistir de manera obligatoria y oportuna a los procesos de seguimiento notificados y cumplir a cabalidad con un mínimo del 80% de los cursos o capacitaciones asignadas so pena de perder los beneficios a los que haya lugar, de acuerdo con lo establecido en el artículo 14 de la Ley 1636 de 2013.</li>
+            <li>Las capacitaciones ofrecidas por la Agencia de Empleo de COMFENALCO, tienen el objetivo de preparar, desarrollar y complementar las capacidades de los cesantes.</li>
+            <li>Las obligaciones de la Agencia de Empleo de COMFENALCO son de medio y no de resultado.</li>
+            <li>Únicamente se podrán exonerar de la asistencia a la capacitación, por causa de fuerza mayor o caso fortuito, según lo establecido en el artículo 64 del código civil. En todo caso, esta circunstancia deberá ser declarada bajo juramento por el cesante. Serán aceptadas como fuerza mayor las incapacidades médicas expedidas por profesional médico de la Entidad Promotora de Salud o entidad asimilable del Sistema de Seguridad Social en salud a la cual se encuentre afiliado el cesante.</li>
+        </ul>
+    </div>
+    <div class="pdf-page">
+        <p class="acceptance-text">
+            Por esta razón, ACEPTO cumplir y acatar cualquier sanción o acción legal que COMFENALCO instaure en mi contra con el fin de salvaguardar los recursos administrados en caso de no cumplir con las obligaciones a mi cargo, de acuerdo con lo establecido en la norma.
+        </p>
+
+        <p class="date-section">
+            Para constancia, se firma el presente documento, en la ciudad de Cartagena de Indias a los 
+            <select class="input-inline" style="width: 60px; text-align: center;">
+                <option value="" disabled selected>Día</option>
+                <option value="01">01</option><option value="02">02</option><option value="03">03</option>
+                <option value="04">04</option><option value="05">05</option><option value="06">06</option>
+                <option value="07">07</option><option value="08">08</option><option value="09">09</option>
+                <option value="10">10</option><option value="11">11</option><option value="12">12</option>
+                <option value="13">13</option><option value="14">14</option><option value="15">15</option>
+                <option value="16">16</option><option value="17">17</option><option value="18">18</option>
+                <option value="19">19</option><option value="20">20</option><option value="21">21</option>
+                <option value="22">22</option><option value="23">23</option><option value="24">24</option>
+                <option value="25">25</option><option value="26">26</option><option value="27">27</option>
+                <option value="28">28</option><option value="29">29</option><option value="30">30</option>
+                <option value="31">31</option>
+            </select> 
+            días del mes de 
+            <select class="input-inline" style="width: 120px; text-align: center;">
+                <option value="" disabled selected>Mes</option>
+                <option value="Enero">Enero</option><option value="Febrero">Febrero</option>
+                <option value="Marzo">Marzo</option><option value="Abril">Abril</option>
+                <option value="Mayo">Mayo</option><option value="Junio">Junio</option>
+                <option value="Julio">Julio</option><option value="Agosto">Agosto</option>
+                <option value="Septiembre">Septiembre</option><option value="Octubre">Octubre</option>
+                <option value="Noviembre">Noviembre</option><option value="Diciembre">Diciembre</option>
+            </select> 
+            del año 
+            <select class="input-inline" style="width: 75px; text-align: center;">
+                <option value="" disabled selected>Año</option>
+                <option value="2026">2026</option>
+                <option value="2027">2027</option>
+            </select>.
+        </p>
+
+        <div class="signature-container">
+            <label class="label" style="margin-bottom: 5px;">Firma:</label>
+            <div class="canvas-container">
+                <canvas id="signature-pad"></canvas>
+            </div>
+            <button type="button" class="btn-clear" id="clear-btn">Limpiar Firma</button>
+
+            <div class="signature-details">
+                <div>
+                    <span class="label">Nombre de quien firma:</span>
+                    <input type="text" class="input-inline input-details" placeholder="Escriba su nombre">
+                </div>
+                <div>
+                    <span class="label">No. de Documento:</span>
+                    <input type="text" class="input-inline input-details" placeholder="Escriba su cédula">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="action-panel">
+    <button type="button" class="btn-pdf" id="download-pdf-btn">Generar y Descargar PDF</button>
+</div>
+
+<script>
+    const canvas = document.getElementById('signature-pad');
+    const ctx = canvas.getContext('2d');
+    const clearButton = document.getElementById('clear-btn');
+    const pdfButton = document.getElementById('download-pdf-btn');
+    let drawing = false;
+
+    function resizeCanvas() {
+        const rect = canvas.getBoundingClientRect();
+        canvas.width = rect.width;
+        canvas.height = rect.height;
+        ctx.strokeStyle = "#000000"; 
+        ctx.lineWidth = 2;            
+        ctx.lineCap = "round";
+        ctx.lineJoin = "round";
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    // --- TRACKING DE MOUSE ---
+    canvas.addEventListener('mousedown', (e) => { drawing = true; ctx.beginPath(); ctx.moveTo(e.offsetX, e.offsetY); });
+    canvas.addEventListener('mousemove', (e) => { if (!drawing) return; ctx.lineTo(e.offsetX, e.offsetY); ctx.stroke(); });
+    window.addEventListener('mouseup', () => { drawing = false; });
+
+    // --- TRACKING TÁCTIL ---
+    canvas.addEventListener('touchstart', (e) => {
+        drawing = true;
+        const touch = e.touches[0];
+        const rect = canvas.getBoundingClientRect();
+        ctx.beginPath();
+        ctx.moveTo(touch.clientX - rect.left, touch.clientY - rect.top);
+    });
+    canvas.addEventListener('touchmove', (e) => {
+        if (!drawing) return;
+        const touch = e.touches[0];
+        const rect = canvas.getBoundingClientRect();
+        ctx.lineTo(touch.clientX - rect.left, touch.clientY - rect.top);
+        ctx.stroke();
+    });
+    window.addEventListener('touchend', () => { drawing = false; });
+
+    clearButton.addEventListener('click', () => { ctx.clearRect(0, 0, canvas.width, canvas.height); });
+
+    // --- SCRIPT PARA GENERAR EL PDF ---
+    pdfButton.addEventListener('click', () => {
+        // Ocultar temporalmente el panel de acciones (ya lo tienes en @media print, pero por si acaso)
+        const actionPanel = document.querySelector('.action-panel');
+        if (actionPanel) actionPanel.style.display = 'none';
+
+        // Pequeña pausa para que se aplique el estilo antes de imprimir
+        setTimeout(() => {
+            window.print();
+            
+            // Restaurar el panel después de imprimir (opcional)
+            setTimeout(() => {
+                if (actionPanel) actionPanel.style.display = 'block';
+            }, 500);
+        }, 100);
+    });
+</script>
+
+</body>
+</html>
