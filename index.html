@@ -78,12 +78,14 @@
                 display: none !important;
             }
             .canvas-container {
-                border: 1px solid #ccc;
-            }
+                    border: none !important;
+                    background-color: #ffffff !important;
+                    box-shadow: none;
+                }
         }
 
         /* Resto de tus estilos (header, listas, etc.) se mantienen */
-        .header { text-align: center; margin-bottom: 30px; border-bottom: 2px solid #0056b3; padding-bottom: 15px; }
+        .header { text-align: center; margin-bottom: 30px; padding-bottom: 15px; }
         .input-inline {
             border: none;
             border-bottom: 1px solid #000;
@@ -101,6 +103,8 @@
             border: 1px dashed #6c757d;
             border-radius: 4px;
             margin-bottom: 10px;
+            overflow: hidden;
+            padding: 0;
         }
         @media (max-width: 768px) {
             .canvas-container { height: 160px; }
@@ -124,6 +128,17 @@
                     min-width: 280px;
         }
         
+        canvas {
+            width: 100% !important;
+            height: 100% !important;
+            display: block;
+            cursor: crosshair;
+            touch-action: none;
+            border: none;
+        }
+
+
+
     </style>
 </head>
 <body>
@@ -139,23 +154,28 @@
 
         <p class="legal-text" >
             <input type="text" class="input-inline" placeholder="Escriba su nombre completo" style="width: 320px;"> Mayor de edad, 
-            identificado(a) con cédula de ciudadanía No. <input type="number" class="input-inline" placeholder="...número de documento..." style="width: 200px; text-align: center;">, 
+            identificado(a) con cédula de ciudadanía número <input type="number" class="input-inline" placeholder="...número de documento..." style="width: 200px; text-align: center;">, 
             expedida en <input type="text" class="input-inline" placeholder="...municipio de expedición..." style="width: 250px; text-align: center;"> actuando en nombre propio y en calidad de postulante al esquema de beneficios del Mecanismo de Protección al Cesante y de acuerdo con lo establecido en la Ley 2225 de 2022, Decreto 689 de 2021, la Resolución 5984 de 2014 y Ley 1636 de 2013. Me <strong>COMPROMETO</strong> a entender, comprender y cumplir lo establecido a continuación:
         </p>
 
         <ul class="obligations-list">
             <li class="legal-text">La naturaleza de los recursos asignados para la ruta de empleabilidad (entrevista de orientación laboral, talleres y capacitaciones) es de carácter parafiscal, los cuales son de destinación específica. Por lo tanto, el cumplimiento de la ruta debe realizarse de manera estricta.</li>
+            <br>
             <li class="legal-text">Asistir de manera obligatoria y oportuna a los procesos de seguimiento notificados y cumplir a cabalidad con un mínimo del 80% de los cursos o capacitaciones asignadas so pena de perder los beneficios a los que haya lugar, de acuerdo con lo establecido en el artículo 14 de la Ley 1636 de 2013.</li>
+            <br>
             <li class="legal-text">Las capacitaciones ofrecidas por la Agencia de Empleo de COMFENALCO, tienen el objetivo de preparar, desarrollar y complementar las capacidades de los cesantes.</li>
+            <br>
             <li class="legal-text">Las obligaciones de la Agencia de Empleo de COMFENALCO son de medio y no de resultado.</li>
+            <br>
             <li class="legal-text">Únicamente se podrán exonerar de la asistencia a la capacitación, por causa de fuerza mayor o caso fortuito, según lo establecido en el artículo 64 del código civil. En todo caso, esta circunstancia deberá ser declarada bajo juramento por el cesante. Serán aceptadas como fuerza mayor las incapacidades médicas expedidas por profesional médico de la Entidad Promotora de Salud o entidad asimilable del Sistema de Seguridad Social en salud a la cual se encuentre afiliado el cesante.</li>
+            <br>
         </ul>
     </div>
     <div class="pdf-page">
         <p class="legal-text" >
             Por esta razón, ACEPTO cumplir y acatar cualquier sanción o acción legal que COMFENALCO instaure en mi contra con el fin de salvaguardar los recursos administrados en caso de no cumplir con las obligaciones a mi cargo, de acuerdo con lo establecido en la norma.
         </p>
-
+<br>
         <p class="date-section">
             Para constancia, se firma el presente documento, en la ciudad de Cartagena de Indias a los 
             <input type="number" class="input-inline" placeholder="00" style="width: 60px; text-align: center;">
@@ -165,7 +185,7 @@
         </p>
 
         <div class="signature-container">
-            <label class="label" style="margin-bottom: 5px;">Firma:</label>
+            <label class="label" style="margin-bottom: 5px;">Firma del Postulante:</label>
             <div class="canvas-container">
                 <canvas id="signature-pad"></canvas>
             </div>
@@ -173,11 +193,11 @@
 
             <div class="signature-details">
                 <div>
-                    <span class="label">Nombre de quien firma:</span>
+                    <span class="label">Nombre del Postulante:</span>
                     <input type="text" class="input-inline input-details" placeholder="Escriba su nombre">
                 </div>
                 <div>
-                    <span class="label">No. de Documento:</span>
+                    <span class="label">No. de Documento del Postulante:</span>
                     <input type="text" class="input-inline input-details" placeholder="Escriba su cédula">
                 </div>
             </div>
@@ -270,6 +290,34 @@
             }, 800);
         }, 100);
     });
+
+// === AUTOCOMPLETAR NOMBRE Y CÉDULA EN LA FIRMA ===
+    const nombreArriba = document.querySelector('.input-inline[placeholder="Escriba su nombre completo"]');
+    const cedulaArriba = document.querySelector('.input-inline[placeholder="...número de documento..."]');
+    
+    const nombreFirma = document.querySelector('.input-details[placeholder="Escriba su nombre"]');
+    const cedulaFirma = document.querySelector('.input-details[placeholder="Escriba su cédula"]');
+
+    function autoCompletarFirma() {
+        if (nombreArriba && nombreFirma) {
+            nombreFirma.value = nombreArriba.value;
+        }
+        if (cedulaArriba && cedulaFirma) {
+            cedulaFirma.value = cedulaArriba.value;
+        }
+    }
+
+    // Copiar mientras escribe
+    if (nombreArriba) nombreArriba.addEventListener('input', autoCompletarFirma);
+    if (cedulaArriba) cedulaArriba.addEventListener('input', autoCompletarFirma);
+
+    // También copiar cuando se pierde el foco (por si acaso)
+    if (nombreArriba) nombreArriba.addEventListener('blur', autoCompletarFirma);
+    if (cedulaArriba) cedulaArriba.addEventListener('blur', autoCompletarFirma);
+
+
+
+
 </script>
 
 </body>
